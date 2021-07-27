@@ -12,11 +12,13 @@ import androidx.lifecycle.lifecycleScope
 import dev.cappee.vodafone_r216.api.Parser
 import dev.cappee.vodafone_r216.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var i = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,13 @@ class MainActivity : AppCompatActivity() {
         binding.content.html.movementMethod = ScrollingMovementMethod()
 
         html.observeForever {
-            binding.content.html.text = Parser.getData(it)[0].second.toString()
+            //binding.content.html.text = Parser.getData(it).toString()
+            val result = lifecycleScope.async(Dispatchers.Default) {
+                Parser.getData(it).toString()
+            }
+            lifecycleScope.launch(Dispatchers.Main) {
+                binding.content.html.text = result.await()
+            }
         }
 
         lifecycleScope.launch(Dispatchers.Main) {
@@ -36,12 +44,14 @@ class MainActivity : AppCompatActivity() {
                 addJavascriptInterface(this@MainActivity, "html")
                 webViewClient = object : WebViewClient() {
                     override fun onPageFinished(view: WebView, url: String) {
-                        loadUrl("javascript:window.html.parse(document.getElementsByTagName('html')[0].innerHTML);")
-                        binding.progressBar.visibility = View.INVISIBLE
-                        binding.content.root.visibility = View.VISIBLE
+                        if (i==0) {
+                            i++
+                        } else {
+                            loadUrl("javascript:window.html.parse(document.getElementsByTagName('html')[0].innerHTML);")
+                            binding.progressBar.visibility = View.INVISIBLE
+                            binding.content.root.visibility = View.VISIBLE
+                        }
                     }
-
-
                 }
                 loadUrl("http://192.168.1.1")
             }
