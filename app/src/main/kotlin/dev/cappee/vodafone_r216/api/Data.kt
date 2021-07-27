@@ -1,13 +1,13 @@
 package dev.cappee.vodafone_r216.api
 
-enum class Data {
+import dev.cappee.vodafone_r216.R
 
-    VOLUME_DATA,
-    BATTERY,
-    PHONE_NUMBER,
-    SIGNAL_STRENGTH,
-    SIGNAL_STATUS,
-    NETWORK,
-    DEVICE_CONNECTED
-
+enum class Data(val string: Int) {
+    VOLUME_DATA(R.string.volume_data),
+    BATTERY(R.string.battery),
+    PHONE_NUMBER(R.string.phone_number),
+    SIGNAL_STRENGTH(R.string.signal_strength),
+    SIGNAL_STATUS(R.string.signal_status),
+    NETWORK(R.string.network),
+    DEVICE_CONNECTED(R.string.device_connected)
 }

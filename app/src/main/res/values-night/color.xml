@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Needed because of Google-->
+    <color name="accent">@color/red_200</color>
+    <color name="surface">@color/almost_black</color>
+    <color name="text">@color/white</color>
+</resources>

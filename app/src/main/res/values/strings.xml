@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">R216 Companion</string>
+    <string name="app_name">R216 Monitor</string>
+    <string name="volume_data">Volume data</string>
+    <string name="battery">Battery</string>
+    <string name="phone_number">Phone number</string>
+    <string name="signal_strength">Signal strength</string>
+    <string name="signal_status">Signal status</string>
+    <string name="device_connected">Device connected</string>
+    <string name="network">Network</string>
+    <string name="general">General</string>
 </resources>
