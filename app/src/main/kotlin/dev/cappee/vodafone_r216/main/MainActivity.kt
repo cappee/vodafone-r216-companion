@@ -2,9 +2,6 @@ package dev.cappee.vodafone_r216.main
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
@@ -22,7 +19,6 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.concurrent.fixedRateTimer
 
 class MainActivity : AppCompatActivity() {
 

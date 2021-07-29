@@ -8,4 +8,7 @@
     <string name="device_connected">Device connected</string>
     <string name="network">Network</string>
     <string name="general">General</string>
+    <string name="data_saver">Data saver</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>

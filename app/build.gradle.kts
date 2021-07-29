@@ -56,4 +56,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02")
 
     //Third-part
+    implementation("com.afollestad.material-dialogs:core:3.3.0")
+    implementation("org.jsoup:jsoup:1.14.1")
 }
